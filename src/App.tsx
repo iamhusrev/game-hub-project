@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  Box,
+  Button,
+  Checkmark,
+  List,
+  SimpleGrid,
+  Stack,
+} from "@chakra-ui/react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <SimpleGrid columns={2} gap="40px">
+        <Box background="tomato" height="20" />
+        <Box background="tomato" height="20" />
+        <Box background="tomato" height="20" />
+        <Box background="tomato" height="20" />
+      </SimpleGrid>
+      <Button>Click me</Button>
+      <Button>Click me</Button>
+
+      <Box background="tomato" width="100%" padding="4" color="white">
+        This is the Box
+      </Box>
+
+      <List.Root>
+        <List.Item>Item 1</List.Item>
+        <List.Item>Item 2</List.Item>
+      </List.Root>
+      <Stack>
+        <Checkmark />
+        <Checkmark checked />
+        <Checkmark indeterminate />
+        <Checkmark disabled />
+        <Checkmark checked disabled />
+        <Checkmark indeterminate disabled />
+      </Stack>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
