@@ -4,10 +4,14 @@ import { ColorModeButton } from "./ui/color-mode";
 
 const NavBar = () => {
   return (
-    <HStack>
-      <Image src={logo} alt="Game Hub Logo" boxSize="60px" />
-      <Text>Game Hub</Text>
-      <ColorModeButton />
+    <HStack justifyContent="space-between" padding="1">
+      <HStack>
+        <Image src={logo} alt="Game Hub Logo" boxSize="60px" />
+        <Text>Game Hub</Text>
+      </HStack>
+      <HStack>
+        <ColorModeButton />
+      </HStack>
     </HStack>
   );
 };
