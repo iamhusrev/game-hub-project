@@ -36,6 +36,9 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
               textAlign="left"
               onClick={() => onSelectGenre(genre)}
               variant={"plain"}
+              _hover={{
+                textDecoration: "underline",
+              }}
             >
               {genre.name}
             </Button>
