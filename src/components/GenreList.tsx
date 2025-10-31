@@ -1,5 +1,6 @@
 import {
   Button,
+  Heading,
   HStack,
   Image,
   List,
@@ -23,38 +24,43 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
   if (isLoading) return <Spinner />;
 
   return (
-    <ListRoot variant={"plain"}>
-      {data.map((genre) => (
-        <ListItem
-          key={genre.id}
-          padding={2}
-          borderRadius={8}
-          cursor="pointer"
-          onClick={() => onSelectGenre(genre)}
-          _hover={{
-            bg: "bg.emphasized",
-          }}
-        >
-          <HStack gap={3}>
-            <Image
-              boxSize="32px"
-              borderRadius={8}
-              flexShrink={0}
-              src={getCroppedImageUrl(genre.image_background)}
-            />
-            <Text
-              fontSize="md"
-              fontWeight="medium"
-              _hover={{
-                textDecoration: "underline",
-              }}
-            >
-              {genre.name}
-            </Text>
-          </HStack>
-        </ListItem>
-      ))}
-    </ListRoot>
+    <>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
+      <ListRoot variant={"plain"}>
+        {data.map((genre) => (
+          <ListItem
+            key={genre.id}
+            paddingY={1}
+            borderRadius={8}
+            cursor="pointer"
+            onClick={() => onSelectGenre(genre)}
+            _hover={{
+              bg: "bg.emphasized",
+            }}
+          >
+            <HStack gap={3}>
+              <Image
+                boxSize="32px"
+                borderRadius={8}
+                objectFit={"cover"}
+                src={getCroppedImageUrl(genre.image_background)}
+              />
+              <Text
+                fontSize="md"
+                fontWeight="medium"
+                _hover={{
+                  textDecoration: "underline",
+                }}
+              >
+                {genre.name}
+              </Text>
+            </HStack>
+          </ListItem>
+        ))}
+      </ListRoot>
+    </>
   );
 };
 
