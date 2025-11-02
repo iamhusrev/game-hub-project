@@ -6,7 +6,7 @@ import {
   ListItem,
   ListRoot,
   Spinner,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import useGenres, { type Genre } from "../hooks/useGenres";
 
@@ -27,7 +27,7 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
         Genres
       </Heading>
       <ListRoot variant={"plain"}>
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem
             key={genre.id}
             paddingY={1}
