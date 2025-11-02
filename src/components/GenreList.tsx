@@ -12,9 +12,10 @@ import useGenres, { type Genre } from "../hooks/useGenres";
 
 interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenreId: number | null;
 }
 
-const GenreList = ({ onSelectGenre }: GenreListProps) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: GenreListProps) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return;
@@ -47,7 +48,7 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
               />
               <Text
                 fontSize="md"
-                fontWeight="medium"
+                fontWeight={genre.id === selectedGenreId ? "bold" : "medium"}
                 _hover={{
                   textDecoration: "underline",
                 }}
