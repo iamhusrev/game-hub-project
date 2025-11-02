@@ -1,7 +1,8 @@
 import type { Platform } from "@/hooks/usePlatforms";
 import { HStack, Icon } from "@chakra-ui/react";
 import type { IconType } from "react-icons";
-import { BsGlobe, BsNintendoSwitch } from "react-icons/bs";
+import { BsGlobe } from "react-icons/bs";
+import { SiNintendo } from "react-icons/si"; // ✅ Daha iyi Nintendo icon
 import {
   FaAndroid,
   FaApple,
@@ -15,12 +16,13 @@ import { MdPhoneIphone } from "react-icons/md";
 interface PlatformIconListProps {
   platforms: Platform[];
 }
+
 const PlatformIconList = ({ platforms }: PlatformIconListProps) => {
   const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
-    nintendo: BsNintendoSwitch,
+    nintendo: SiNintendo,
     mac: FaApple,
     linux: FaLinux,
     android: FaAndroid,
@@ -29,10 +31,21 @@ const PlatformIconList = ({ platforms }: PlatformIconListProps) => {
   };
 
   return (
-    <HStack marginY={1}>
-      {platforms.map((platform) => (
-        <Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500" />
-      ))}
+    <HStack marginY={1} gap={1}>
+      {platforms.map((platform) => {
+        const IconComponent = iconMap[platform.slug];
+
+        if (!IconComponent) return null;
+
+        return (
+          <Icon
+            key={platform.id}
+            as={IconComponent}
+            color="gray.500"
+            boxSize={4}
+          />
+        );
+      })}
     </HStack>
   );
 };
