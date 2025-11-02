@@ -1,11 +1,10 @@
 import type { GameQuery } from "@/App";
-import type { Game } from "@/hooks/useGames";
 import useGames from "@/hooks/useGames";
 import { Button, SimpleGrid, Text } from "@chakra-ui/react";
+import React from "react";
 import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
-import React from "react";
 
 interface Props {
   gameQuery: GameQuery;
