@@ -4,7 +4,7 @@ import { Box, Stack } from "@chakra-ui/react";
 
 const Layout = () => {
   return (
-    <Stack spacing={0}>
+    <Stack gap={0}>
       <Stack
         position="fixed"
         top={0}
@@ -16,7 +16,7 @@ const Layout = () => {
         <NavBar />
       </Stack>
       {/* Add top padding to account for fixed navbar height */}
-      <Box paddingTop="70px">
+      <Box padding={4} paddingTop="75px">
         <Outlet />
       </Box>
     </Stack>
